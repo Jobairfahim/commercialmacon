@@ -702,7 +702,7 @@
     ═══════════════════════════════════════════ */
     @media (max-width: 960px) {
       .hero-grid       { grid-template-columns: 1fr; }
-      .hero-visual     { display: none; }
+      .hero-visual     { display: block; margin-top: 2rem; }
       .about-grid      { grid-template-columns: 1fr; }
       .about-visual    { display: none; }
       .trust-inner     { grid-template-columns: 1fr; }
@@ -732,6 +732,8 @@
       .hamburger span  { width: 20px; height: 2px; }
       .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
       .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+      .hero-visual     { margin-top: 1.5rem; }
+      .hero-card       { margin: 0 auto; max-width: 400px; }
     }
     @media (max-width: 480px) {
       .hero-actions    { flex-direction: column; align-items: stretch; }
@@ -748,6 +750,12 @@
       .mobile-menu .cta-row .btn { padding: .6rem 1rem; font-size: .9rem; }
       .hamburger       { padding: .3rem; }
       .hamburger span  { width: 18px; }
+      .hero-visual     { margin-top: 1rem; }
+      .hero-card       { margin: 0 auto; max-width: 100%; }
+      .hero-card-header { padding: 1.25rem 1.5rem; }
+      .hero-card-body { padding: 1rem 1.5rem; }
+      .hero-card-footer { padding: .75rem 1.5rem; }
+      .service-list-mini li { padding: .5rem 0; font-size: .85rem; }
     }
 
 
@@ -1006,7 +1014,7 @@
 
         <!-- Hero Visual (hidden on mobile) -->
         <div class="hero-visual reveal" aria-hidden="true">
-          <span class="float-badge">BBB Recognized</span>
+          <!-- <span class="float-badge">BBB Recognized</span> -->
           <div class="hero-card">
             <div class="hero-card-header">
               <h3>Commercial Locksmith Services</h3>
