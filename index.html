@@ -575,6 +575,92 @@
     .reviewer span { font-size: .78rem; color: var(--muted); }
 
     /* ═══════════════════════════════════════════
+       COUPONS
+    ═══════════════════════════════════════════ */
+    .coupons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    .coupon-card {
+      background: linear-gradient(135deg, var(--white) 0%, var(--offwhite) 100%);
+      border: 2px dashed var(--gold);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .coupon-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--gold-dk);
+    }
+    .coupon-card::before {
+      content: '';
+      position: absolute;
+      top: -2px; left: -2px; right: -2px; bottom: -2px;
+      background: linear-gradient(45deg, var(--gold), transparent, var(--gold));
+      border-radius: var(--radius-lg);
+      opacity: 0;
+      transition: opacity .3s;
+      z-index: -1;
+    }
+    .coupon-card:hover::before { opacity: .1; }
+    .coupon-badge {
+      position: absolute;
+      top: -8px; right: 20px;
+      background: var(--gold);
+      color: var(--white);
+      padding: .4rem 1rem;
+      border-radius: 0 0 8px 8px;
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .05em;
+      box-shadow: 0 4px 12px rgba(124,58,237,.3);
+    }
+    .coupon-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.4rem;
+      color: var(--slate);
+      margin-bottom: .5rem;
+    }
+    .coupon-description {
+      color: var(--mid);
+      font-size: .95rem;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .coupon-code {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--gold);
+      color: var(--white);
+      padding: .6rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: .9rem;
+      margin-bottom: 1rem;
+      letter-spacing: .1em;
+    }
+    .coupon-code:hover {
+      background: var(--gold-dk);
+      cursor: pointer;
+    }
+    .coupon-expiry {
+      font-size: .8rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .coupon-terms {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: .75rem;
+      line-height: 1.4;
+    }
+
+    /* ═══════════════════════════════════════════
        CONTACT
     ═══════════════════════════════════════════ */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
@@ -740,6 +826,10 @@
       .hero-actions .btn { justify-content: center; }
       .areas-grid      { grid-template-columns: 1fr; }
       .cta-actions     { flex-direction: column; align-items: center; }
+      .coupons-grid    { grid-template-columns: 1fr; }
+      .coupon-card     { padding: 1.5rem 1.25rem; }
+      .coupon-title    { font-size: 1.2rem; }
+      .coupon-code     { padding: .5rem 1rem; font-size: .85rem; }
       .nav             { height: 56px; }
       .nav-inner       { height: 56px; }
       .mobile-menu     { top: 56px; max-height: calc(100vh - 56px); padding: 1rem 1.25rem 1.5rem; }
@@ -948,8 +1038,9 @@
         </li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact Us</a></li>
-        <li><a href="#faq">FAQ</a></li>
         <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#coupons">Coupons</a></li>
+        <li><a href="#faq">FAQ</a></li>
       </ul>
 
       <div class="nav-cta">
@@ -980,10 +1071,10 @@
       </div>
     </div>
     <a href="#about">About</a>
-    <a href="#why">Why Choose Us</a>
     <a href="#contact">Contact Us</a>
-    <a href="#faq">FAQ</a>
     <a href="#reviews">Reviews</a>
+    <a href="#coupons">Coupons</a>
+    <a href="#faq">FAQ</a>
     <div class="cta-row">
       <a href="tel:4787394334" class="btn btn-primary">📞 Call (478) 739-4334</a>
     </div>
@@ -1054,6 +1145,88 @@
         <div class="trust-item">
           <div class="trust-icon">💬</div>
           <div><strong>Upfront Pricing</strong><p>No hidden fees</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ REVIEWS ══════════ -->
+  <section class="section" id="reviews" aria-labelledby="reviews-heading">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Customer Reviews</span>
+        <h2 id="reviews-heading">What Businesses Say</h2>
+        <p>Trusted by small offices, family-owned stores, restaurants, and local shops across Macon.</p>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="review-text">"Fast response and honest pricing. They rekeyed our office after an employee departure — professional service from start to finish. Will call again."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar" aria-hidden="true">JM</div>
+            <div><strong>James M.</strong><span>Office Manager, North Macon</span></div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="review-text">"Our rear exit panic bar stopped latching and they came out same day, fixed it quickly, explained everything clearly. Exactly what a small business needs."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar" aria-hidden="true">SC</div>
+            <div><strong>Sandra C.</strong><span>Restaurant Owner, Downtown Macon</span></div>
+          </div>
+        </div>
+        <div class="review-card reveal">
+          <div class="stars" aria-label="5 stars">★★★★★</div>
+          <p class="review-text">"The door closer on our entrance was slamming badly. One visit and it was completely fixed. Very professional and reasonably priced. Highly recommended."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar" aria-hidden="true">RP</div>
+            <div><strong>Robert P.</strong><span>Retail Store Owner, Macon</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════ COUPONS ══════════ -->
+  <section class="section" id="coupons" aria-labelledby="coupons-heading" style="background: var(--offwhite);">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="tag">Special Offers</span>
+        <h2 id="coupons-heading">Commercial Locksmith Coupons</h2>
+        <p>Save on our professional commercial locksmith services. Present these coupons when scheduling your service.</p>
+      </div>
+      <div class="coupons-grid">
+        <div class="coupon-card reveal">
+          <span class="coupon-badge">NEW CUSTOMERS</span>
+          <h3 class="coupon-title">10% OFF First Service</h3>
+          <p class="coupon-description">New commercial clients receive 10% off their first locksmith service. Perfect for businesses trying our services for the first time.</p>
+          <div class="coupon-code" onclick="copyCoupon('FIRST10')" style="cursor: pointer;">
+            📋 FIRST10
+          </div>
+          <p class="coupon-expiry">Valid through December 31, 2026</p>
+          <p class="coupon-terms">* Cannot be combined with other offers. Minimum $100 service required.</p>
+        </div>
+        
+        <div class="coupon-card reveal">
+          <span class="coupon-badge">BULK SERVICE</span>
+          <h3 class="coupon-title">$25 OFF Multiple Doors</h3>
+          <p class="coupon-description">Save $25 when servicing 3 or more doors in one visit. Ideal for office buildings, retail spaces, and facilities.</p>
+          <div class="coupon-code" onclick="copyCoupon('BULK25')" style="cursor: pointer;">
+            📋 BULK25
+          </div>
+          <p class="coupon-expiry">Valid through December 31, 2026</p>
+          <p class="coupon-terms">* Must be scheduled as single service visit. Applies to rekey, repair, or installation services.</p>
+        </div>
+        
+        <div class="coupon-card reveal">
+          <span class="coupon-badge">EMERGENCY</span>
+          <h3 class="coupon-title">FREE Emergency Assessment</h3>
+          <p class="coupon-description">Complimentary security assessment with any emergency commercial lockout service. Keep your business secure after hours.</p>
+          <div class="coupon-code" onclick="copyCoupon('EMERG24')" style="cursor: pointer;">
+            📋 EMERG24
+          </div>
+          <p class="coupon-expiry">Available 24/7 for emergency calls</p>
+          <p class="coupon-terms">* Must mention coupon when calling. Assessment provided during emergency service visit.</p>
         </div>
       </div>
     </div>
@@ -1501,43 +1674,6 @@
     </div>
   </section>
 
-  <!-- ══════════ REVIEWS ══════════ -->
-  <section class="section" id="reviews" aria-labelledby="reviews-heading">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="tag">Customer Reviews</span>
-        <h2 id="reviews-heading">What Businesses Say</h2>
-        <p>Trusted by small offices, family-owned stores, restaurants, and local shops across Macon.</p>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card reveal">
-          <div class="stars" aria-label="5 stars">★★★★★</div>
-          <p class="review-text">"Fast response and honest pricing. They rekeyed our office after an employee departure — professional service from start to finish. Will call again."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar" aria-hidden="true">JM</div>
-            <div><strong>James M.</strong><span>Office Manager, North Macon</span></div>
-          </div>
-        </div>
-        <div class="review-card reveal">
-          <div class="stars" aria-label="5 stars">★★★★★</div>
-          <p class="review-text">"Our rear exit panic bar stopped latching and they came out same day, fixed it quickly, explained everything clearly. Exactly what a small business needs."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar" aria-hidden="true">SC</div>
-            <div><strong>Sandra C.</strong><span>Restaurant Owner, Downtown Macon</span></div>
-          </div>
-        </div>
-        <div class="review-card reveal">
-          <div class="stars" aria-label="5 stars">★★★★★</div>
-          <p class="review-text">"The door closer on our entrance was slamming badly. One visit and it was completely fixed. Very professional and reasonably priced. Highly recommended."</p>
-          <div class="reviewer">
-            <div class="reviewer-avatar" aria-hidden="true">RP</div>
-            <div><strong>Robert P.</strong><span>Retail Store Owner, Macon</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ══════════ CONTACT ══════════ -->
   <section class="section" id="contact" aria-labelledby="contact-heading">
     <div class="container">
@@ -1791,6 +1927,52 @@
       }
       alert('Thank you! We will be in touch shortly. Or call us directly at (478) 739-4334.');
     }
+
+    // Coupon copy function
+    function copyCoupon(code) {
+      navigator.clipboard.writeText(code).then(() => {
+        // Create temporary notification
+        const notification = document.createElement('div');
+        notification.textContent = `Coupon code "${code}" copied to clipboard!`;
+        notification.style.cssText = `
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          background: var(--gold);
+          color: white;
+          padding: 1rem 1.5rem;
+          border-radius: 8px;
+          box-shadow: 0 4px 20px rgba(124,58,237,.4);
+          z-index: 10000;
+          font-weight: 600;
+          animation: slideIn 0.3s ease;
+        `;
+        document.body.appendChild(notification);
+        
+        // Remove notification after 3 seconds
+        setTimeout(() => {
+          notification.style.animation = 'slideOut 0.3s ease';
+          setTimeout(() => notification.remove(), 300);
+        }, 3000);
+      }).catch(() => {
+        // Fallback for older browsers
+        prompt('Copy this coupon code:', code);
+      });
+    }
+
+    // Add slide animations
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes slideIn {
+        from { transform: translateX(100%); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+      }
+      @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(100%); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(style);
   </script>
 
   <!-- ══════════ FLOATING BUTTONS ══════════ -->
